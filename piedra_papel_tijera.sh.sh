@@ -1,28 +1,28 @@
-#!binbash
-echo Elige piedra, papel o tijera (sin acentos ni mayusculas)
+#!/bin/bash
+echo "Elige piedra, papel o tijera (sin acentos ni mayusculas):"
 read opcion_usuario
 
 
-opcion_usuario=$(echo $opcion_usuario)
-opciones=(piedra papel tijera)
+opcion_usuario=$(echo "$opcion_usuario")
+opciones=("piedra" "papel" "tijera")
 opcion_terminal=${opciones[$(( RANDOM % 3 ))]}
 
-echo la terminal eligio $opcion_terminal
+echo "la terminal eligio: $opcion_terminal"
 
 
-if [[ $opcion_usuario == piedra  $opcion_usuario == papel  $opcion_usuario == tijera ]]; then
+if [[ "$opcion_usuario" == "piedra" || "$opcion_usuario" == "papel" || "$opcion_usuario" == "tijera" ]]; then
 
-if [ $opcion_usuario == $opcion_terminal ]; then
-echo empate
-elif [ $opcion_usuario == piedra ] && [ $opcion_terminal == tijera ]; then
-echo ganaste
-elif [ $opcion_usuario == papel ] && [ $opcion_terminal == piedra ]; then
-echo ganaste
-elif [ $opcion_usuario == tijera ] && [ $opcion_terminal == papel ]; then
-echo ganaste
+if [ "$opcion_usuario" == "$opcion_terminal" ]; then
+echo "empate"
+elif [ "$opcion_usuario" == "piedra" ] && [ "$opcion_terminal" == "tijera" ]; then
+echo "ganaste"
+elif [ "$opcion_usuario" == "papel" ] && [ "$opcion_terminal" == "piedra" ]; then
+echo "ganaste"
+elif [ "$opcion_usuario" == "tijera" ] && [ "$opcion_terminal" == "papel" ]; then
+echo "ganaste"
 else
-echo perdiste
+echo "perdiste"
 fi
 else
-echo opci n invalida
+echo "opción invalida"
 fi
