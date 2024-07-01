@@ -24,6 +24,8 @@ void *comer_hamburguesa(void *tid) // función que no devuelve nada específico.
             {
                 printf("SE TERMINARON LAS HAMBURGUESAS :( \n");
 
+                 turno = (turno + 1) % NUMBER_OF_THREADS;
+                
                 pthread_exit(NULL); // forzar terminacion del hilo
             }
         // turnos + 1 pero si psasa el num de hilos se reinicia a 0
